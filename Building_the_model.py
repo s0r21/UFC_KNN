@@ -7,7 +7,7 @@ Model_Accuracy = []
 # n_neighbor = 109 with test size of 0.3 (0.564134)
 # n_neighbor = 126 with test size of 0.2 (0.572163)
 
-for i in range(1, 500):
+for i in range(1, 100):
      Model = KNeighborsClassifier(n_neighbors=i, algorithm='kd_tree').fit(X_train, y_train.values.ravel())
      Predicting_y = Model.predict(X_test)
      print("We're at #" + str(i))
@@ -20,8 +20,7 @@ Model_accuracy_df = Model_accuracy_df.rename(columns= {0:"N_Neighbor", 1:"Accura
 print(Model_accuracy_df.iloc[0])
 
 Official_Model = KNeighborsClassifier(n_neighbors=Model_accuracy_df['N_Neighbor'].iloc[0],
-                                      algorithm=Model.algorithm, leaf_size=Model.leaf_size).\
-    fit(X_train, y_train.values.ravel())
+                                      algorithm=Model.algorithm).fit(X_train, y_train.values.ravel())
 Official_Model_Prediction = Official_Model.predict(real_test_set)
 Official_Model_Prediction = pd.DataFrame(np.transpose(Official_Model_Prediction))
 Official_Model_Prediction.columns = ['Predicition']

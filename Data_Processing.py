@@ -21,7 +21,7 @@ def normalization_minmax(df):
 
 # Creating the test and training sets for the KNN model
 
-raw_data = pd.read_csv('C:/Users/t0ys0r/OneDrive/Desktop/UFC Model/data_for_model.csv').dropna()\
+raw_data = pd.read_csv('C:/Users/t0ys0r/OneDrive/Desktop/UFC Model/Data_for_model_no_organization.csv').dropna()\
     .drop(columns=['Winner','Stance','Fighter'])
 
 y = pd.DataFrame(raw_data['Winner_binary'])
@@ -31,7 +31,7 @@ X['Reach'] = normalization_minmax(X['Reach'])
 X['Ht.'] = normalization_minmax(X['Ht.'])
 X['L'] = normalization_minmax(X['L'])
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.05, random_state=0, shuffle= False)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.05, random_state = 0, shuffle = False)
 
 event_fighter_names = most_recent_event[0]
 event_fighter_names = pd.DataFrame(event_fighter_names['Fighter'].str.split('  ', 1, expand = True).stack().\
