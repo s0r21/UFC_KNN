@@ -26,7 +26,7 @@ alphabet_array = ['a', 'b', 'c', 'd',
                   'q', 'r', 's', 't',
                   'u', 'v', 'w', 'x',
                   'y', 'z']
-# fix this
+
 def webscrape_function(array):
     df = pd.DataFrame()
     for i in array:
