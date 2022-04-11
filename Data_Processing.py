@@ -22,7 +22,7 @@ def normalization_minmax(df):
 # Creating the test and training sets for the KNN model
 
 raw_data = pd.read_csv('C:/Users/t0ys0r/OneDrive/Desktop/UFC Model/Data_for_model_no_organization.csv').dropna()\
-    .drop(columns=['Winner','Stance','Fighter'])
+    .drop(columns=['Winner','Stance','Fighter', 'W', 'Wt.'])
 
 y = pd.DataFrame(raw_data['Winner_binary'])
 X = raw_data.drop(columns='Winner_binary')
