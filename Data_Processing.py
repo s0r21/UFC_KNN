@@ -1,6 +1,6 @@
 # Getting the data and manipulating it
 from Web_scrape import all_fighter_df, dimension_conversion, most_recent_event
-from Packages import *
+from Utils import *
 
 # All the functions & classes used in this program
 class stance_conversion:
