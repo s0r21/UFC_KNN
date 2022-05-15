@@ -1,5 +1,5 @@
 # Getting the data and manipulating it
-from Web_scrape import all_fighter_df, dimension_conversion, most_recent_event
+from Data_processing_and_webscrape.Web_scrape import all_fighter_df, dimension_conversion, most_recent_event
 from Utils import *
 
 # All the functions & classes used in this program

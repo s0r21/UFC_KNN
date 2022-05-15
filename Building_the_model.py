@@ -1,5 +1,5 @@
 # KNN Model
-from Data_Processing import X_train, X_test, y_train, y_test, real_test_set, export_dataframe
+from Data_processing_and_webscrape.Data_Processing import X_train, X_test, y_train, y_test, real_test_set, export_dataframe
 from Utils import *
 def create_directory(directory_name, file_name):
     dirname = os.path.dirname(__file__)
