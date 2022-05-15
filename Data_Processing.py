@@ -100,7 +100,7 @@ columns_to_drop_from_raw_df = ['Winner','Stance','Fighter', 'W',
 null_number = 100000000
 
 # Importing the raw data used in the KNN (Note: this is a CSV file located on my computer)
-raw_data = pd.read_csv('C:/Users/t0ys0r/OneDrive/Desktop/UFC Model/Data_for_model_no_organization.csv').dropna()\
+raw_data = pd.read_csv('Input/Data_for_model_no_organization.csv').dropna()\
     .drop(columns=columns_to_drop_from_raw_df)
 
 # Creating the X and Y values

@@ -37,4 +37,5 @@ print(Model_accuracy_df.iloc[0])
 
 # Putting the results in a DF with the names of the people in the event and exporting it to an XLSX file on my computer
 excel_output = export_dataframe.join(official_model_function()).dropna()
-create_directory('UFC_Event_Results', excel_output)
+file_name = create_directory('Output', 'todays_ufc_event.xlsx')
+excel_output.to_excel(file_name)
