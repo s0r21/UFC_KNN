@@ -2,6 +2,7 @@
 from Data_processing_and_webscrape.Web_scrape import all_fighter_df, dimension_conversion, most_recent_event
 from Utils import *
 
+
 # All the functions & classes used in this program
 class stance_conversion:
     def Orthadox_stance_conversion(df):
@@ -100,7 +101,11 @@ columns_to_drop_from_raw_df = ['Winner','Stance','Fighter', 'W',
 null_number = 100000000
 
 # Importing the raw data used in the KNN (Note: this is a CSV file located on my computer)
-raw_data = pd.read_csv('Input/Data_for_model_no_organization.csv').dropna()\
+# raw_data = pd.read_csv('Input/Data_for_model_no_organization.csv').dropna()\
+#     .drop(columns=columns_to_drop_from_raw_df)
+
+# For Mac ?
+raw_data = pd.read_csv('Data_for_model_no_organization.csv').dropna()\
     .drop(columns=columns_to_drop_from_raw_df)
 
 # Creating the X and Y values
