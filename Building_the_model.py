@@ -23,7 +23,7 @@ def model_accuracy_function():
 Model_Accuracy = []
 
 # Building the KNN Model. Iterates through 99 values to see which one provides the highest accuracy.
-for i in range(1, 100):
+for i in range(1, 21):
      Model = KNeighborsClassifier(n_neighbors=i, algorithm='kd_tree').fit(X_train, y_train.values.ravel())
      Predicting_y = Model.predict(X_test)
      print("We're at #" + str(i))

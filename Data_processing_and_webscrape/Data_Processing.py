@@ -20,7 +20,8 @@ class stance_conversion:
         return df
 class Normalization:
     def normalization_minmax(df):
-        df = (df - min(df)) / (max(df) - min(df))
+        df = (df - np.mean(df)) / np.std(df)
+        #df = (df - min(df)) / (max(df) - min(df))
         return df
     def normalization_of_df(df):
         df['Reach'] = Normalization.normalization_minmax(df['Reach'])
@@ -101,12 +102,12 @@ columns_to_drop_from_raw_df = ['Winner','Stance','Fighter', 'W',
 null_number = 100000000
 
 # Importing the raw data used in the KNN (Note: this is a CSV file located on my computer)
-# raw_data = pd.read_csv('Input/Data_for_model_no_organization.csv').dropna()\
-#     .drop(columns=columns_to_drop_from_raw_df)
+raw_data = pd.read_csv('Data_processing_and_webscrape/Data_for_model_no_organization.csv').dropna()\
+    .drop(columns=columns_to_drop_from_raw_df)
 
 # For Mac ?
-raw_data = pd.read_csv('Data_for_model_no_organization.csv').dropna()\
-    .drop(columns=columns_to_drop_from_raw_df)
+#raw_data = pd.read_csv('Data_for_model_no_organization.csv').dropna()\
+#    .drop(columns=columns_to_drop_from_raw_df)
 
 # Creating the X and Y values
 y = pd.DataFrame(raw_data['Winner_binary'])
@@ -116,7 +117,8 @@ X = raw_data.drop(columns='Winner_binary')
 X = Normalization.normalization_of_df(X)
 
 # Creating the training & test sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.05, random_state = 0, shuffle = False)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.21,
+                                                    random_state = 1111, shuffle = True)
 
 # Manipulating the webscraping dataframe.
 all_fighter_df = event_test_set.real_event_test_set(all_fighter_df)
