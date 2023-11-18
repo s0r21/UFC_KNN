@@ -27,7 +27,7 @@ alphabet_array = ['a', 'b', 'c', 'd',
                   'y', 'z']
 
 # Choosing the event based on the link provided in the input function
-event_name = input('Please enter link to event -> from ( www.ufcstats.com/event ): ')
+event_name = input('Please enter link to event -> from ( http://www.ufcstats.com/statistics/events/completed ): ')
 # Taking the event and putting it into a dataframe
 most_recent_event = pd.read_html(event_name)
 
